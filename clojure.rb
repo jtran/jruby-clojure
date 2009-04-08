@@ -5,8 +5,6 @@
 #
 #   Clojure.execute( "(pp (rest [1 2 3]))" )  
 #     => "(2 3)"
-# 
-#   Requirements: expects boot.clj in local directory
 #
   
 %w[ java.io.ByteArrayInputStream
@@ -38,10 +36,6 @@ class Clojure
           	  (. clojure.lang.RT (print form wtr)))
           	((memfn toString) bytearray)))  		
       EOS
-    end     
-    
-    def boot_clj
-      IO.read BOOT_CLJ 
     end
     
     def prepare!
@@ -56,7 +50,7 @@ class Clojure
     end
     
     def init!
-      load( boot_clj + prelude_clj )
+      load( prelude_clj )
     end 
       
     def test               

@@ -14,8 +14,6 @@
    
 class Clojure
   
-  BOOT_CLJ = File.join File.dirname(__FILE__), 'boot.clj' 
-  
   class << self
     
     private

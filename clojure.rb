@@ -34,7 +34,7 @@ class Clojure
         (import (quote (java.io BufferedWriter OutputStreamWriter ByteArrayOutputStream))) 
         (defn pp [form]
           (let [bytearray (new ByteArrayOutputStream )]
-          	(with-open wtr (new BufferedWriter (new OutputStreamWriter bytearray "US-ASCII"))
+          	(with-open [wtr (new BufferedWriter (new OutputStreamWriter bytearray "US-ASCII"))]
           	  (. clojure.lang.RT (print form wtr)))
           	((memfn toString) bytearray)))  		
       EOS
